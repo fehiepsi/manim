@@ -22,7 +22,7 @@ LOW_QUALITY_CAMERA_CONFIG = {
     "pixel_shape" : (480, 853),
 }
 
-DEFAULT_POINT_DENSITY_2D = 25 
+DEFAULT_POINT_DENSITY_2D = 25
 DEFAULT_POINT_DENSITY_1D = 250
 
 DEFAULT_POINT_THICKNESS = 4
@@ -60,9 +60,9 @@ BOTTOM     = SPACE_HEIGHT*DOWN
 LEFT_SIDE  = SPACE_WIDTH*LEFT
 RIGHT_SIDE = SPACE_WIDTH*RIGHT
 
-# Change this to point to where you want 
+# Change this to point to where you want
 # animation files to output
-MOVIE_DIR         = os.path.join(os.path.expanduser('~'), "Dropbox/3b1b_videos/animations/")
+MOVIE_DIR         = os.path.join(os.path.expanduser('~'), "manim/3b1b_videos/animations/")
 STAGED_SCENES_DIR = os.path.join(MOVIE_DIR, "staged_scenes")
 ###
 THIS_DIR          = os.path.dirname(os.path.realpath(__file__))

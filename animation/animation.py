@@ -4,7 +4,7 @@ import numpy as np
 import warnings
 import time
 import os
-import progressbar
+# import progressbar
 import inspect
 from copy import deepcopy
 
@@ -17,7 +17,7 @@ class Animation(object):
         "rate_func" : smooth,
         "name" : None,
         #Does this animation add or remove a mobject form the screen
-        "remover" : False, 
+        "remover" : False,
         #Options are lagged_start, smoothed_lagged_start,
         #one_at_a_time, all_at_once
         "submobject_mode" : "all_at_once",
@@ -68,7 +68,7 @@ class Animation(object):
     def get_all_mobjects(self):
         """
         Ordering must match the ording of arguments to update_submobject
-        """ 
+        """
         return self.mobject, self.starting_mobject
 
     def get_all_families_zipped(self):
