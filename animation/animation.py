@@ -55,7 +55,7 @@ class Animation(object):
         self.update_mobject(self.rate_func(alpha))
 
     def update_mobject(self, alpha):
-        families = list(self.all_families_zipped)
+        families = self.all_families_zipped
         for i, mobs in enumerate(families):
             sub_alpha = self.get_sub_alpha(alpha, i, len(families))
             self.update_submobject(*list(mobs) + [sub_alpha])
@@ -72,10 +72,10 @@ class Animation(object):
         return self.mobject, self.starting_mobject
 
     def get_all_families_zipped(self):
-        return zip(*map(
+        return list(zip(*map(
             Mobject.family_members_with_points,
             self.get_all_mobjects()
-        ))
+        )))
 
     def get_sub_alpha(self, alpha, index, num_submobjects):
         if self.submobject_mode in ["lagged_start", "smoothed_lagged_start"]:
