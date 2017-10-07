@@ -156,7 +156,7 @@ class VMobject(Mobject):
         points = np.array(points)
         self.set_anchors_and_handles(points, *[
             interpolate(points[:-1], points[1:], alpha)
-            for alpha in 1./3, 2./3
+            for alpha in [1./3, 2./3]
         ])
         return self
 
@@ -249,7 +249,7 @@ class VMobject(Mobject):
         return bezier(self.points[3*n:3*n+4])
 
     def get_num_anchor_points(self):
-        return (len(self.points) - 1)/3 + 1
+        return (len(self.points) - 1)//3 + 1
 
     def point_from_proportion(self, alpha):
         num_cubics = self.get_num_anchor_points()-1
@@ -304,7 +304,7 @@ class VMobject(Mobject):
         #Each element of index_allocation is like a bucket, 
         #and its value tells you the appropriate index of 
         #the smaller curve.
-        index_allocation = (np.arange(curr+n-1) * num_curves)/(curr+n-1)
+        index_allocation = (np.arange(curr+n-1) * num_curves)//(curr+n-1)
         for index in range(num_curves):
             curr_bezier_points = self.points[3*index:3*index+4]
             num_inter_curves = sum(index_allocation == index)

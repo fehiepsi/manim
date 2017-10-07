@@ -4,4 +4,4 @@ __all__ = [
     "transform"
 ]
 
-from animation import Animation
+from .animation import Animation

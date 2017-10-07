@@ -1,8 +1,8 @@
 import numpy as np
 import operator as op
 
-from animation import Animation
-from transform import Transform
+from .animation import Animation
+from .transform import Transform
 from mobject import Mobject1D, Mobject
 from topics.geometry import Line
 
@@ -42,7 +42,7 @@ class Vibrate(Animation):
         )
         for mob, start in zip(*families):
             mob.points = np.apply_along_axis(
-                lambda (x, y, z) : (x, y + self.wave_function(x, time), z),
+                lambda x, y, z : (x, y + self.wave_function(x, time), z),
                 1, start.points
             )
 

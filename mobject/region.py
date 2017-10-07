@@ -3,7 +3,7 @@ import itertools as it
 from PIL import Image
 from copy import deepcopy
 
-from mobject import Mobject
+from .mobject import Mobject
 
 from helpers import *
 

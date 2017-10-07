@@ -1,6 +1,6 @@
 import numpy as np
 
-from scene import Scene
+from .scene import Scene
 from animation.transform import FadeIn
 from mobject import Mobject
 from topics.geometry import Rectangle

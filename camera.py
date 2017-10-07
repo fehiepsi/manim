@@ -157,8 +157,8 @@ class Camera(object):
         return vmobject.get_fill_color()
 
     def get_pathstring(self, vmobject):
-        result = ""        
-        for mob in [vmobject]+vmobject.get_subpath_mobjects():
+        result = ""
+        for mob in [vmobject]+list(vmobject.get_subpath_mobjects()):
             points = mob.points
             # points = self.adjust_out_of_range_points(points)            
             if len(points) == 0:
@@ -260,7 +260,7 @@ class Camera(object):
                         dim*np.dot(recentered_coords, vect),
                         np.dot(vect, vect),
                     )
-                    for vect, dim in (right_vect, iw), (down_vect, ih)
+                    for vect, dim in [(right_vect, iw), (down_vect, ih)]
                 ]
             to_change = reduce(op.and_, [
                 ix_coords >= 0, ix_coords < iw,
@@ -279,7 +279,7 @@ class Camera(object):
     def overlay_rgba_array(self, arr):
         # """ Overlays arr onto self.pixel_array with relevant alphas"""
         bg, fg = self.pixel_array/255.0, arr/255.0
-        bga, fga = [arr[:,:,3:] for arr in bg, fg]
+        bga, fga = [arr[:,:,3:] for arr in [bg, fg]]
         alpha_sum = fga + (1-fga)*bga
         with np.errstate(divide = 'ignore', invalid='ignore'):
             bg[:,:,:3] = reduce(op.add, [

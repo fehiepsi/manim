@@ -55,7 +55,7 @@ class Animation(object):
         self.update_mobject(self.rate_func(alpha))
 
     def update_mobject(self, alpha):
-        families = self.all_families_zipped
+        families = list(self.all_families_zipped)
         for i, mobs in enumerate(families):
             sub_alpha = self.get_sub_alpha(alpha, i, len(families))
             self.update_submobject(*list(mobs) + [sub_alpha])

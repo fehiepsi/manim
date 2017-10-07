@@ -463,7 +463,7 @@ class Mobject(object):
 
     def apply_complex_function(self, function, **kwargs):
         return self.apply_function(
-            lambda (x, y, z) : complex_to_R3(function(complex(x, y))),
+            lambda x, y, z : complex_to_R3(function(complex(x, y))),
             **kwargs
         )
 
@@ -676,7 +676,7 @@ class Mobject(object):
         #push it into its submobject list
         self_has_points, mob_has_points = [
             mob.get_num_points() > 0
-            for mob in self, mobject
+            for mob in [self, mobject]
         ]
         if self_has_points and not mob_has_points:
             mobject.null_point_align(self)

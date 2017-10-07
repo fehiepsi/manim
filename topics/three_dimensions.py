@@ -1,4 +1,3 @@
-
 from helpers import *
 
 from mobject.vectorized_mobject import VGroup, VMobject, VectorizedPoint

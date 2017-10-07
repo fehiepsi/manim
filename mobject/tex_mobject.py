@@ -1,7 +1,7 @@
 from helpers import *
 
-from vectorized_mobject import VMobject, VGroup, VectorizedPoint
-from svg_mobject import SVGMobject, VMobjectFromSVGPathstring
+from .vectorized_mobject import VMobject, VGroup, VectorizedPoint
+from .svg_mobject import SVGMobject, VMobjectFromSVGPathstring
 from topics.geometry import BackgroundRectangle
 
 import collections

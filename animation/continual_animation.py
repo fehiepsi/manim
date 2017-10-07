@@ -1,6 +1,6 @@
 from helpers import *
 from mobject import Mobject, Group
-from simple_animations import MaintainPositionRelativeTo
+from .simple_animations import MaintainPositionRelativeTo
 import copy
 
 class ContinualAnimation(object):

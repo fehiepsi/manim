@@ -14,7 +14,7 @@ import subprocess as sp
 from helpers import *
 
 from camera import Camera
-from tk_scene import TkSceneRoot
+from .tk_scene import TkSceneRoot
 from mobject import Mobject, VMobject
 from animation import Animation
 from animation.animation import sync_animation_run_times_and_rate_funcs
@@ -377,6 +377,7 @@ class Scene(object):
             kwargs["run_time"] = 0
 
         animations = self.compile_play_args_to_animation_list(*args)
+        print("abbc", animations)
         self.num_plays += 1
 
         sync_animation_run_times_and_rate_funcs(*animations, **kwargs)

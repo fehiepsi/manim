@@ -6,8 +6,8 @@ import warnings
 
 from helpers import *
 
-from animation import Animation
-from simple_animations import DelayByOrder
+from .animation import Animation
+from .simple_animations import DelayByOrder
 from mobject import Mobject, Point, VMobject, Group
 from topics.geometry import Dot
 

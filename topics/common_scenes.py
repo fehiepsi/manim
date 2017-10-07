@@ -1,4 +1,3 @@
-
 from helpers import *
 
 from scene.scene import Scene

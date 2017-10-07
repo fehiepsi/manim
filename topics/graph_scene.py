@@ -6,9 +6,9 @@ from mobject.tex_mobject import TexMobject, TextMobject
 from mobject.vectorized_mobject import VGroup, VectorizedPoint
 from animation.simple_animations import Write, ShowCreation, UpdateFromAlphaFunc
 from animation.transform import Transform
-from topics.number_line import NumberLine
-from topics.functions import ParametricFunction
-from topics.geometry import Rectangle, DashedLine, Line
+from .topics.number_line import NumberLine
+from .topics.functions import ParametricFunction
+from .topics.geometry import Rectangle, DashedLine, Line
 
 class GraphScene(Scene):
     CONFIG = {

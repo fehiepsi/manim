@@ -35,11 +35,12 @@ class SquareToCircle(Scene):
         self.play(Transform(square, circle))
         self.dither()
 
+
 class WarpSquare(Scene):
     def construct(self):
         square = Square()
         self.play(ApplyPointwiseFunction(
-            lambda (x, y, z) : complex_to_R3(np.exp(complex(x, y))),
+            lambda x, y, z : complex_to_R3(np.exp(complex(x, y))),
             square
         ))
         self.dither()

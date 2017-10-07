@@ -5,8 +5,8 @@ from PIL import Image
 from random import random
 
 from helpers import *
-from mobject import Mobject
-from point_cloud_mobject import PMobject
+from .mobject import Mobject
+from .point_cloud_mobject import PMobject
 
 class ImageMobject(Mobject):
     """

@@ -1,4 +1,4 @@
-import Tkinter
+import tkinter as Tkinter
 from PIL import ImageTk, Image
 import itertools as it
 import time

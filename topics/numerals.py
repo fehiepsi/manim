@@ -1,4 +1,3 @@
-
 from mobject.vectorized_mobject import VMobject, VGroup, VectorizedPoint
 from mobject.tex_mobject import TexMobject
 from animation import Animation
