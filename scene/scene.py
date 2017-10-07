@@ -120,7 +120,7 @@ class Scene(object):
             self.set_camera_pixel_array(background)
         else:
             self.reset_camera()
-
+        
         self.capture_mobjects_in_camera(mobjects, **kwargs)
 
     def freeze_background(self):
@@ -295,10 +295,10 @@ class Scene(object):
             [ca.mobject for ca in self.continual_animations],
             self.foreground_mobjects,
         ))
-        static_mobjects = filter(
+        static_mobjects = list(filter(
             lambda m : m not in moving_mobjects,
             self.mobjects
-        )
+        ))
         return moving_mobjects, static_mobjects
 
     def get_time_progression(self, run_time):
