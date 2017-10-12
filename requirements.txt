@@ -3,4 +3,5 @@ numpy
 pillow
 scipy
 tqdm
+future
 git+https://github.com/scottopell/aggdraw-64bits.git
