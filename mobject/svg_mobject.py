@@ -81,7 +81,7 @@ class SVGMobject(VMobject):
         else:
             pass ##TODO
             # warnings.warn("Unknown element type: " + element.tagName)
-        result = filter(lambda m : m is not None, result)
+        result = list(filter(lambda m : m is not None, result))
         self.handle_transforms(element, VMobject(*result))
         return result
 
@@ -204,7 +204,7 @@ class VMobjectFromSVGPathstring(VMobject):
             "A", #elliptical Arc
             "Z", #closepath
         ]
-        result += map(lambda s : s.lower(), result)
+        result += list(map(lambda s : s.lower(), result))
         return result
 
     def generate_points(self):
@@ -274,7 +274,7 @@ class VMobjectFromSVGPathstring(VMobject):
         numbers = string_to_numbers(coord_string)
         if len(numbers)%2 == 1:
             numbers.append(0)
-        num_points = len(numbers)/2
+        num_points = len(numbers)//2
         result = np.zeros((num_points, self.dim))
         result[:,:2] = np.array(numbers).reshape((num_points, 2))
         return result

@@ -146,10 +146,10 @@ class TexMobject(SVGMobject):
         def test(tex1, tex2):
             return tex1 == tex2 or (substring and tex1 in tex2)
 
-        tex_submobjects = filter(
+        tex_submobjects = list(filter(
             lambda m : isinstance(m, TexMobject),
             self.submobject_family()
-        )
+        ))
         if hasattr(self, "expression_parts"):
             tex_submobjects.remove(self)
         return VGroup(*filter(

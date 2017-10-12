@@ -336,13 +336,13 @@ class Scene(object):
         def compile_method(state):
             if state["curr_method"] is None:
                 return
-            mobject = state["curr_method"].im_self
-            if state["last_method"] and state["last_method"].im_self is mobject:
+            mobject = state["curr_method"].__self__
+            if state["last_method"] and state["last_method"].__self__ is mobject:
                 animations.pop()
                 #method should already have target then.
             else:
                 mobject.target = mobject.deepcopy()
-            state["curr_method"].im_func(
+            state["curr_method"].__func__(
                 mobject.target, *state["method_args"]
             )
             animations.append(MoveToTarget(mobject))

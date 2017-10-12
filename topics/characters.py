@@ -505,10 +505,10 @@ class PiCreatureScene(Scene):
         if not self.any_pi_creatures_on_screen():
             return animations
 
-        non_pi_creature_anims = filter(
+        non_pi_creature_anims = list(filter(
             lambda anim : anim.mobject not in self.get_pi_creatures(),
             animations
-        )
+        ))
         if len(non_pi_creature_anims) == 0:
             return animations
         first_anim = non_pi_creature_anims[0]

@@ -73,7 +73,7 @@ class ChangingDecimal(Animation):
         decimal.align_data(new_decimal)
         families = [
             mob.family_members_with_points()
-            for mob in decimal, new_decimal
+            for mob in [decimal, new_decimal]
         ]
         for sm1, sm2 in zip(*families):
             sm1.interpolate(sm1, sm2, 1)

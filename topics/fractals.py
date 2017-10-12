@@ -4,7 +4,7 @@ from scene import Scene
 from animation.transform import Transform
 from animation.simple_animations import ShowCreation
 from topics.geometry import Line, Polygon, RegularPolygon, Square, Circle
-from characters import PiCreature, Randolph, get_all_pi_creature_modes
+from .characters import PiCreature, Randolph, get_all_pi_creature_modes
 
 from helpers import *
 

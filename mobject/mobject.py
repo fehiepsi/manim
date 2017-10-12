@@ -603,10 +603,10 @@ class Mobject(object):
         return remove_list_redundancies(all_mobjects)
 
     def family_members_with_points(self):
-        return filter(
+        return list(filter(
             lambda m : m.get_num_points() > 0,
             self.submobject_family()
-        )
+        ))
 
     def arrange_submobjects(self, direction = RIGHT, center = True, **kwargs):
         for m1, m2 in zip(self.submobjects, self.submobjects[1:]):

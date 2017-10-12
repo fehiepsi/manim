@@ -392,7 +392,7 @@ class PlayingCard(VGroup):
         "color" : LIGHT_GREY,
         "turned_over" : False,
         "possible_suits" : ["hearts", "diamonds", "spades", "clubs"],
-        "possible_values" : map(str, range(2, 11)) + ["J", "Q", "K", "A"],
+        "possible_values" : list(map(str, range(2, 11))) + ["J", "Q", "K", "A"],
     }
 
     def __init__(self, key = None, **kwargs):
