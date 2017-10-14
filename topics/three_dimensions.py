@@ -1,3 +1,5 @@
+from functools import cmp_to_key
+
 from helpers import *
 
 from mobject.vectorized_mobject import VGroup, VMobject, VectorizedPoint
@@ -84,14 +86,13 @@ class ThreeDCamera(CameraWithPerspective):
             has_points = [vm.get_num_points() > 0 for vm in vmobs]
             if all(three_d_status) and all(has_points):
                 cmp_vect = self.get_unit_normal_vect(vmobs[1])
-                return cmp(*[
-                    np.dot(vm.get_center(), cmp_vect)
-                    for vm in vmobs
-                ])
+                a = np.dot(vmobs[0].get_center(), cmp_vect)
+                b = np.dot(vmobs[1].get_center(), cmp_vect)
+                return (a > b) - (a < b)
             else:
                 return 0
         Camera.display_multiple_vectorized_mobjects(
-            self, sorted(vmobjects, cmp = z_cmp)
+            self, sorted(vmobjects, key = cmp_to_key(z_cmp))
         )
 
     def get_spherical_coords(self, phi = None, theta = None, distance = None):

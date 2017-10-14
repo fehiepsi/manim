@@ -142,10 +142,10 @@ class Scene(object):
         self.dither(wind_down_time)
         #TODO, this is not done with the remove method so as to
         #keep the relevant mobjects.  Better way?
-        self.continual_animations = filter(
+        self.continual_animations = list(filter(
             lambda ca : ca in continual_animations,
             self.continual_animations
-        )
+        ))
 
     def should_continually_update(self):
         return len(self.continual_animations) > 0 or self.always_continually_update
@@ -172,7 +172,7 @@ class Scene(object):
                 for family in families
             ])
             return num_families == 1
-        return filter(is_top_level, mobjects)
+        return list(filter(is_top_level, mobjects))
 
     def separate_mobjects_and_continual_animations(self, mobjects_or_continual_animations):
         mobjects = []
@@ -222,18 +222,18 @@ class Scene(object):
             mobjects_or_continual_animations
         )
         mobjects = self.extract_mobject_family_members(*mobjects)
-        self.mobjects = filter(
+        self.mobjects = list(filter(
             lambda m : m not in mobjects,
             self.mobjects
-        )
+        ))
         self.remove_mobjects_not_completely_on_screen()
         self.remove_foreground_mobjects(*mobjects)
 
-        self.continual_animations = filter(
+        self.continual_animations = list(filter(
             lambda ca : ca not in continual_animations and \
                         ca.mobject not in mobjects,
             self.continual_animations
-        )
+        ))
 
         return self
 
@@ -244,7 +244,7 @@ class Scene(object):
                 for submob in mobject.family_members_with_points()
             ])
 
-        self.mobjects = filter(should_keep, self.mobjects)
+        self.mobjects = list(filter(should_keep, self.mobjects))
         return self
 
     def add_foreground_mobjects(self, *mobjects):
@@ -259,10 +259,10 @@ class Scene(object):
         return self.add_foreground_mobjects(mobject)
 
     def remove_foreground_mobjects(self, *mobjects):
-        self.foreground_mobjects = filter(
+        self.foreground_mobjects = list(filter(
             lambda m : m not in mobjects,
             self.foreground_mobjects
-        )
+        ))
         return self
 
     def remove_foreground_mobject(self, mobject):
